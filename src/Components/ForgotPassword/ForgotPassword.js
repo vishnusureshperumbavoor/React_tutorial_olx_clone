@@ -1,17 +1,17 @@
 import React,{useState,useContext} from 'react';
 import { FirebaseContext } from '../../store/AuthContext';
 import Logo from '../../olx-logo.png';
-import './Login.css';
+import './ForgotPassword.css';
 import {useHistory} from 'react-router-dom'
-function Login() {
+function ForgotPassword() {
   const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
   const {firebase}= useContext(FirebaseContext)
   const history = useHistory()
   const handleLogin=(e)=>{
     e.preventDefault()
-    firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
-      history.push("/")
+    firebase.auth().sendPasswordResetEmail(email).then(()=>{
+      alert("Check your Gmail")
+      history.push('/login')
     }).catch((error)=>{
       alert(error.message)
     })
@@ -36,36 +36,24 @@ function Login() {
             required
           />
           <br />
-          <label htmlFor="lname">Password</label>
-          <br />
-          <input
-            className="input"
-            type="password"
-            id="lname"
-            name="password"
-            defaultValue="Doe"
-            value={password}
-            onChange={(e)=>
-              setPassword(e.target.value)
-            }
-            required
-          />
           <br />
           <br />
-          <button>Login</button>
+          <br />
+          
+          <button>Reset Password</button>
         </form>
 
         <a onClick={()=>{
-          history.push('/forgot-password')
-        }} id="signup">Forgot Password?</a>
+          history.push('/login')
+        }} id="login">Already have an account? Login here</a>
 
         <a onClick={()=>{
           history.push('/signup')
-        }} id="signup">Doesn't have an account? Create here</a>
+        }} id="signup">Doesn't have an account? Signup here</a>
         
       </div>
     </div>
   );
 }
 
-export default Login;
+export default ForgotPassword;

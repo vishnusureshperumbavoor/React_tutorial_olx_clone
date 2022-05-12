@@ -9,6 +9,7 @@ import Home from './Pages/Home';
 import { AuthContext, FirebaseContext } from './store/AuthContext';
 import Post from './store/postContext';
 import PrivateRoute from './PrivateRoute';
+import ForgotPassword from './Pages/ForgotPassword';
 
 function App() {
   const {setUser} = useContext(AuthContext)
@@ -16,6 +17,7 @@ function App() {
   useEffect(()=>{
     firebase.auth().onAuthStateChanged((user)=>{
       setUser(user)
+      alert("user " + user.displayName)
     })
   })
   return (
@@ -23,9 +25,10 @@ function App() {
           <Post>
           <Router>
             <Switch>
-              <PrivateRoute exact path="/" component={Home}/>
+              <Route exact path="/" component={Home}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/login" component={Login}/>
+              <Route path="/forgot-password" component={ForgotPassword}/>
               <PrivateRoute path="/create" component={Create}/>
               <PrivateRoute path="/view" component={View}/>
             </Switch>
