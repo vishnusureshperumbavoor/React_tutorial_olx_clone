@@ -1,7 +1,7 @@
 import React, { Fragment , useState ,useContext} from 'react';
 import './Create.css';
 import Header from '../Header/Header';
-import { FirebaseContext, AuthContext } from '../../store/Context';
+import { FirebaseContext, AuthContext } from '../../store/AuthContext';
 import {useHistory} from 'react-router-dom'
 
 const Create = () => {
@@ -50,6 +50,7 @@ const Create = () => {
             onChange={(e)=>
               setName(e.target.value)
             }
+            required
             />
             <br />
             <label htmlFor="fname">Category</label>
@@ -64,6 +65,7 @@ const Create = () => {
             onChange={(e)=>
               setCategory(e.target.value)
             }
+            required
             />
             <br />
             <label htmlFor="fname">Price</label>
@@ -71,7 +73,8 @@ const Create = () => {
             <input className="input" type="number" id="fname" name="Price" value={price}
             onChange={(e)=>
               setPrice(e.target.value)
-            }/>
+            }
+            required/>
             <br />
           </form>
           <br />
@@ -80,7 +83,7 @@ const Create = () => {
             <br />
             <input onChange={(e)=>{
               setImage(e.target.files[0])
-            }} type="file" />
+            }} type="file" required/>
             <br />
             <button onClick={handleSubmit} className="uploadBtn">upload and Submit</button>
           

@@ -1,5 +1,5 @@
 import React,{useState,useContext} from 'react';
-import { FirebaseContext } from '../../store/Context';
+import { FirebaseContext } from '../../store/AuthContext';
 import Logo from '../../olx-logo.png';
 import './Login.css';
 import {useHistory} from 'react-router-dom'
@@ -33,6 +33,7 @@ function Login() {
             onChange={(e)=>
               setEmail(e.target.value)
             }
+            required
           />
           <br />
           <label htmlFor="lname">Password</label>
@@ -47,12 +48,15 @@ function Login() {
             onChange={(e)=>
               setPassword(e.target.value)
             }
+            required
           />
           <br />
           <br />
           <button>Login</button>
         </form>
-        <a>Signup</a>
+        <a onClick={()=>{
+          history.push('/signup')
+        }} id="signup">Doesn't have an account? Create here</a>
       </div>
     </div>
   );

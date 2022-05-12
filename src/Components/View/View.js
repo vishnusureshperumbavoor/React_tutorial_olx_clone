@@ -1,5 +1,5 @@
 import React,{useEffect,useState,useContext} from 'react';
-import { FirebaseContext } from '../../store/Context';
+import { FirebaseContext } from '../../store/AuthContext';
 import { PostContext } from '../../store/postContext';
 
 import './View.css';

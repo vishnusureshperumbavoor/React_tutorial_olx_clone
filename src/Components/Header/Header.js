@@ -6,7 +6,7 @@ import Search from '../../assets/Search';
 import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
-import { AuthContext,FirebaseContext } from '../../store/Context';
+import { AuthContext,FirebaseContext } from '../../store/AuthContext';
 function Header() {
   const {user} = useContext(AuthContext)
   const {firebase} = useContext(FirebaseContext)
@@ -47,11 +47,13 @@ function Header() {
             history.push("/login")
           }}>Logout</span> }
 
-        <div className="sellMenu">
+        <div className="sellMenu" onClick={()=>{
+          history.push('/create')
+        }}>
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
-            <span>SELL</span>
+            <span >SELL</span>
           </div>
         </div>
       </div>

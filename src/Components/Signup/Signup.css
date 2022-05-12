@@ -7,19 +7,26 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
+    /* text-align: center;
+    display: inline-block; */
   }
-  
   .signupParentDiv .input {
     border-top-color: transparent;
     border-left-color: transparent;
     border-right-color: transparent;
     outline-color: transparent;
+    width: 100%;
   }
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
   
   .signupParentDiv button {
     width: 100%;
     height: 48px;
-    /* border-color: transparent; */
+    border-color: transparent; 
     background-color: #002f34;
     color: whitesmoke;
     font-weight: 900;
@@ -35,4 +42,9 @@
     justify-content: center;
     cursor: pointer;
   }
+#login{
+  margin-top:8px;
+  font-size:13px;
+}
+
   
